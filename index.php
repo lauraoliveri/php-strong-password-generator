@@ -11,8 +11,11 @@ function GeneratePassword($plen) {
 
         $randomNum= rand(0,strlen($allCharacters)- 1);
         var_dump($allCharacters[$randomNum]);
+
+        $password .= $allCharacters[$randomNum];
     }
     
+
     return $password;
 }
 
@@ -20,11 +23,11 @@ function GeneratePassword($plen) {
 $length= null;
 if (isset($_GET['length'])) {
     $length = intval($_GET['length']);
-
+    var_dump($length);
 
     // la password ha un min di 3 e un max di 15 caratteri
     if ($length >= 3 && $length <= 15) {
-        $generatedPassword = GeneratePassword('length');
+        $generatedPassword = GeneratePassword($length);
 
         var_dump($generatedPassword);
     }
